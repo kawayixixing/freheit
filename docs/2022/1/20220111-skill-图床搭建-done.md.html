@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>20220111-skill-图床搭建-done</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="图床搭配picgo">图床搭配PicGo</h1>
+<h2 id="起因">1、起因</h2>
+<p>写文章、做笔记的时候通常需要插入一些图片，但是图片又不想保存在本地，如果文章要发布在网络上，图片存储又是一大问题，所以想到了用图床解决。</p>
+<p>图床，就是进行图片存储的服务器，同时允许对外连接网络，所有人可以访问。</p>
+<h2 id="图床推荐">2、图床推荐</h2>
+<p><strong>免费图床</strong></p>
+<p><a
+href="https://sm.ms/">SMMS</a>：免费、稳定、快捷。开发API。免费用户5G。PS：微信不支持。</p>
+<p><a href="https://github.com/">GitHub</a>、<a
+href="https://gitee.com/">Gitee</a>：代码托管云平台，Gitee是国内的Github，两者可以存储任何东西。</p>
+<p><strong>偶尔用用</strong></p>
+<p><a href="https://imgurl.org/">ImgURL</a>：对游客有限制，每日最多上传
+10 张，单张图片不能超过 5M，偶尔用用还是挺好的。</p>
+<p><a href="https://imgtu.com/">路过图床</a>：随机用用。</p>
+<p><strong>付费图床</strong></p>
+<p>腾讯云、<a
+href="https://cn.aliyun.com/price/detail/oss">阿里云</a>、<a
+href="https://www.qiniu.com/prices/kodo">七牛云</a>等</p>
+<p><strong>无需注册</strong></p>
+<p><a
+href="https://sspai.com/post/55032">几个免费，无需注册的图床，开箱即用</a></p>
+<h2 id="图床上传器picgo">3、图床上传器：Picgo</h2>
+<p>有了图床，可以将图片返回一个URL链接，而不需要专门编辑、存放、管理。直接复制粘贴在Markdown中使用。一张张上传使用不现实，所以还需要一个专门的图片上传工具。</p>
+<p><strong>PicGo</strong></p>
+<p>跨平台工具，开源且免费哦！</p>
+<p>具体安装省略，咕一下，有手就行。</p>
+<p>初始配置好存储方案，PicGo 支持
+SMMS、腾讯云、阿里云、七牛云、GitHub、又拍云、Imgur 等，同时支持
+Gitee、青云等第三方图床服务。使用时，拖放图片到主窗口或 mini 窗口（macOS
+为顶部状态栏），PicGo
+会自动上传至云服务器并返回链接到剪贴板，直接粘贴即可使用。</p>
+<p><a href="https://imgtu.com/i/7Z26qP"><img
+src="https://s4.ax1x.com/2022/01/11/7Z26qP.png"
+alt="Picgo.png" /></a></p>
+<p>使用Gitee时需要在插件设置里安装Gitee的插件。</p>
+<p><strong>Gitee + Picgo</strong></p>
+<ul>
+<li>在Gitee里新建一个图床仓库</li>
+</ul>
+<p><a href="https://imgtu.com/i/7ZfgVx"><img
+src="https://s4.ax1x.com/2022/01/11/7ZfgVx.png"
+alt="Gitee.png" /></a></p>
+<ul>
+<li>获取 token：点击头像，进入 个人设置，点击左侧「私人令牌 - 生成新令牌
+- 修改私人令牌权限 - 简单私人令牌描述 - 提交」即可生成私人令牌
+token。</li>
+</ul>
+<p><a href="https://imgtu.com/i/7Z4U9U"><img
+src="https://s4.ax1x.com/2022/01/11/7Z4U9U.png"
+alt="Token-set.png" /></a></p>
+<ul>
+<li>配置Gitee在PicGo中</li>
+</ul>
+<p><a href="https://imgtu.com/i/7Z50G8"><img
+src="https://s4.ax1x.com/2022/01/11/7Z50G8.png"
+alt="PicGo-Gitee.png" /></a></p>
+<p>Github同理。</p>
+<p><strong>SMMS + Picgo</strong></p>
+<p>进入 <a
+href="https://sm.ms/">SMMS图床官网</a>，注册登录之后，点击右上角「User -
+Dashboard」，在「APItoken」中可以查看个人专属 Secret Token。</p>
+<p>然后将Token填写到PicGo中即可。</p>
+<h2 id="安卓端app">4、安卓端APP</h2>
+<p>推荐<a
+href="https://www.coolapk.com/apk/name.gudong.pic">咕咚云图</a>。开发者Blog：<a
+href="https://gudong.site/">咕咚</a></p>
+<p><strong>参考资料</strong></p>
+<blockquote>
+<p><a href="https://sspai.com/post/65716">图床搭配
+PicGo：打造高效的图片处理工作流</a></p>
+</blockquote>
+</body>
+</html>

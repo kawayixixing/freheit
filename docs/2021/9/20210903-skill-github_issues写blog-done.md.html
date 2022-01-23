@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>20210903-skill-github_issues写blog-done</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="如何使用github-issue-写博客">如何使用Github issue 写博客</h1>
+<h2 id="初衷">1、初衷</h2>
+<p>有很多的博客平台，方便定制、简洁明了，模板多多。但是要使用图片的话，需要用到图床（自行Bing）。文章写好后，还需要自行部署（虽然可以想办法自动化）。评论系统的对接也有些许麻烦。其他平台例如：石墨文档、ONENOTE、Evernote等，体验不是很好，或者是需要长时间适应。</p>
+<h2 id="优点">2、优点</h2>
+<ul>
+<li>可随时记录。</li>
+<li>图片直接上传</li>
+<li>Github为静态服务</li>
+<li>支持markdown</li>
+<li>issue自带评论系统</li>
+<li>labels标签类似于同类的TAG</li>
+<li>projects项目类似于同类的分类（在每个项目里还可细分）</li>
+<li>issues列表类似于同类的归档</li>
+</ul>
+<h2 id="开始部署">3、开始部署</h2>
+<ol type="1">
+<li><p>new repository-新建仓库，填写repository name与description。 <img
+src="https://user-images.githubusercontent.com/45343530/131882896-0fc77943-7fb0-4afa-9dc2-d9e4590da7f1.png"
+alt="new-repository" /></p></li>
+<li><p>new projects-新建项目，填写project board name 与description。
+<img
+src="https://user-images.githubusercontent.com/45343530/131883479-cca9e149-25f4-4ebb-8dff-bdc23b5bf2ec.png"
+alt="project-list" /></p></li>
+</ol>
+<figure>
+<img
+src="https://user-images.githubusercontent.com/45343530/131883009-e68d3deb-46b9-46b9-a3a0-e15530894d73.png"
+alt="create a new project" />
+<figcaption aria-hidden="true">create a new project</figcaption>
+</figure>
+<ol start="3" type="1">
+<li><p>add column-增加专栏，填写column
+name。在projects里，可以添加专栏，用于分类每个issues。 <img
+src="https://user-images.githubusercontent.com/45343530/131883076-be0d05d5-8035-488e-ba80-c2d5696df361.png"
+alt="add column" /></p></li>
+<li><p>new issue-新建问题，在issues栏中new issues，填写Title与leave a
+comment，可直接插图片，右侧栏目assignees-撰写人、labels-标签、projects-所属项目。
+<img
+src="https://user-images.githubusercontent.com/45343530/131883122-bad6dc60-adc3-4edf-9f54-469cec46dc50.png"
+alt="new issues" /></p></li>
+<li><p>new
+labels-新建标签，可在issues栏中的lables位置创建新的标签。可将原来所属标签删除，new
+labels，填写label name、description、color。 <img
+src="https://user-images.githubusercontent.com/45343530/131883174-4a9cb02c-729e-415a-8369-4b7f4f621395.png"
+alt="new labels" /></p></li>
+<li><p>add
+cards-将issues加入对于projects的column中。在对应的projects中选择add
+cards，将对应的issues拖入对应的column即可。 <img
+src="https://user-images.githubusercontent.com/45343530/131883210-6d45f92f-3a58-44c8-94b0-e35e16e01db6.png"
+alt="add cards" /></p></li>
+<li><p>pin
+issue-将该issue固定在issues栏主页。在某一个issues具体内容中的右边栏目可pin。
+<img
+src="https://user-images.githubusercontent.com/45343530/131883240-85818bf5-4639-4572-a0f0-c8b1bb7d29b1.png"
+alt="pin issue" /></p></li>
+</ol>
+<p>PS：待完善。</p>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>20220122-skill-A_Whole_Website_in_a_Single_HTMLFile-done</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p>A Whole Website in a Single HTML File | CSS-Tricks</p>
+<p>I can’t stop thinking about <a
+href="https://john-doe.neocities.org/">this site</a>. It looks like a
+pretty standard fare; a website with links to different pages. Nothing
+to write home about except that… <strong>the whole website is contained
+within a single HTML file</strong>.</p>
+<p>What about clicking the navigation links, you ask? Each link merely
+shows and hides certain parts of the HTML.</p>
+<pre><code>&lt;section id=&quot;home&quot;&gt;
+  &lt;!-- home content goes here --&gt;
+&lt;/section&gt;
+&lt;section id=&quot;about&quot;&gt;
+  &lt;!-- about page goes here --&gt;
+&lt;/section&gt;</code></pre>
+<p>Each <code>&lt;section&gt;</code> is hidden with CSS:</p>
+<pre><code>section { display: none; }</code></pre>
+<p>Each link in the main navigation points to an anchor on the page:</p>
+<pre><code>&lt;a href=&quot;#home&quot;&gt;Home&lt;/a&gt;
+&lt;a href=&quot;#about&quot;&gt;About&lt;/a&gt;</code></pre>
+<p>And once you click a link, the <code>&lt;section&gt;</code> for that
+particular link is displayed via:</p>
+<pre><code>section:target { display: block; }</code></pre>
+<p>See that
+<code>:[target](https://css-tricks.com/almanac/selectors/t/target/)</code>
+pseudo selector? That’s the magic! Sure, it’s been around for years, but
+this is a clever way to use it for sure. Most times, it’s used to
+highlight the anchor on the page once an anchor link to it has been
+clicked. That’s a handy way to help the user know where they’ve just
+jumped to.</p>
+<p>Anyway, using <code>:target</code> like this is super smart stuff! It
+ends up looking like just a regular website when you click around:</p>
+<p><a href="https://john-doe.neocities.org/">Direct Link →</a></p>
+<hr />
+<p>这片文章介绍了，一篇用纯HTML写的blog,我的博客就是根据这个基础进行修改的。希望你也可以通过阅读源码来完成自己的博客。</p>
+</body>
+</html>

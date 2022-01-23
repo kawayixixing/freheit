@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>20210827-skill-owncloud网盘搭建-done</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="owncloud个人网盘搭建">owncloud个人网盘搭建</h1>
+<h2 id="安装apache服务">1、安装Apache服务</h2>
+<h3 id="更新软件库更新软件">1.1更新软件库、更新软件</h3>
+<pre><code>apt-get update | apt-get upgrade -y</code></pre>
+<h3 id="安装apache服务-1">1.2安装Apache服务</h3>
+<pre><code>apt-get install apache2 -y</code></pre>
+<h3 id="重启apache服务">1.3重启Apache服务</h3>
+<pre><code>/etc/init.d/apache2 restart</code></pre>
+<h2 id="安装mysql服务">2、安装MySQL服务</h2>
+<h3 id="下载apt存储库">2.1下载APT存储库</h3>
+<pre><code>wget https://dev.mysql.com/get/mysql-apt-config_0.8.10-1_all.deb</code></pre>
+<h3 id="安装deb包">2.2安装DEB包</h3>
+<pre><code>dpkg -i mysql-apt-config_0.8.10-1_all.deb</code></pre>
+<h3 id="更新软件库安装mysql">2.3更新软件库，安装MySQL</h3>
+<pre><code>apt-get update     
+apt-get install mysql-server -y</code></pre>
+<h2 id="安装php及php扩展">3、安装PHP及PHP扩展</h2>
+<h3 id="安装php">3.1安装PHP</h3>
+<pre><code>apt-get install php7.0 -y</code></pre>
+<h3 id="安装php扩展模块">3.2安装PHP扩展模块</h3>
+<pre><code>apt install php-bz2 php-curl php-gd php-imagick php-intl php-mbstring php-xml php-zip -y</code></pre>
+<h3 id="安装phpmyadmin">3.3安装phpmyadmin</h3>
+<pre><code>apt-get install phpmyadmin -y
+（使用空格选择apache2,然后回车）接着按2次enter键</code></pre>
+<h3 id="查看数据库用户名和密码">3.4查看数据库用户名和密码</h3>
+<pre><code>cat /etc/mysql/debian.cnf</code></pre>
+<h2 id="创建owncloud数据库">4、创建OwnCloud数据库</h2>
+<h3 id="进入数据库">4.1进入数据库</h3>
+<pre><code>sudo mysql -u root -p
+(MySQL数据库默认没有密码，在Enterpassword处回车即可)</code></pre>
+<h3 id="使用数据库">4.2使用数据库</h3>
+<pre><code>use mysql;</code></pre>
+<h3
+id="创建数据库其中owncloud为数据库名">4.3创建数据库，其中owncloud为数据库名</h3>
+<pre><code>CREATE DATABASE owncloud;</code></pre>
+<h3 id="在owncloud数据库上创建用户">4.4在owncloud数据库上创建用户</h3>
+<pre><code>CREATE USER &#39;owncloud&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;owncloud&#39;;</code></pre>
+<h3 id="为用户授权">4.5为用户授权</h3>
+<pre><code>grant all privileges on owncloud.* to &#39;owncloud&#39;@&#39;localhost&#39; with grant option;</code></pre>
+<h3 id="刷新数据库">4.6刷新数据库</h3>
+<pre><code>FLUSH PRIVILEGES;</code></pre>
+<h3 id="退出数据库">4.7退出数据库</h3>
+<pre><code>exit</code></pre>
+<h2 id="搭建owncloud环境">5、搭建Owncloud环境</h2>
+<h3 id="下载owncloud服务器包">5.1下载owncloud服务器包</h3>
+<pre><code>wget https://download.owncloud.org/community/owncloud-10.0.9.zip
+（建议另外下载，然后上传过来，太慢了）</code></pre>
+<h3 id="解压owncloud服务器包">5.2解压owncloud服务器包</h3>
+<pre><code>unzip owncloud-10.0.9.zip</code></pre>
+<h3
+id="将owncloud包移动到varwwwhtml目录下">5.3将owncloud包移动到/var/www/html目录下</h3>
+<pre><code>mv owncloud /var/www/html</code></pre>
+<h3 id="赋予owncloud文件夹权限">5.4赋予owncloud文件夹权限</h3>
+<pre><code>chown -R www-data:www-data /var/www/html/owncloud/
+chmod -R 777 /var/www/html/owncloud/</code></pre>
+<h3 id="重启apache服务-1">5.5重启Apache服务</h3>
+<pre><code>/etc/init.d/apache2 restart</code></pre>
+<h3 id="打开浏览器">5.6打开浏览器</h3>
+<pre><code>访问http：//IP/owncloud，依次输入管理员用户名、管理员密码、数据库用户名、数据库密码、数据库名、localhost，单击安装完成。</code></pre>
+<blockquote>
+<p>参数说明：</p>
+<p>管理员用户名：设置一个用户名。 管理员密码：设置一个用户密码。
+数据库用户名：输入owncloud。 数据库密码：输入owncloud。
+localhost：输入localhost:5432。</p>
+</blockquote>
+<h2 id="将外挂硬盘作为存储对象">6、将外挂硬盘作为存储对象</h2>
+<h3 id="设置开机自动挂载硬盘">6.1设置开机自动挂载硬盘</h3>
+<pre><code>sudo vim /etc/fstab</code></pre>
+<blockquote>
+<p>文档末尾处插入：[UUID] [挂载目录] [硬盘格式] [options] [dump] [pass]
+例如：UUID=C0F8ACE9F8ACDEC2 /disk ntfs-3g utf8,uid=33,gid=33,umask=0007
+0 0 然后reboot，用于自动挂载</p>
+</blockquote>
+<h3 id="移植数据">6.2移植数据</h3>
+<p>进入挂载好的硬盘，创建owncloud目录</p>
+<pre><code>sudo mkdir /mnt/data/owncloud</code></pre>
+<p>将原有的数据文件复制到该目录下</p>
+<pre><code>sudo cp -R /var/www/html/owncloud/data /mnt/data/9、owncloud</code></pre>
+<h3 id="owncloud配置">6.3 Owncloud配置</h3>
+<p>进入owncloud的config文件进行修改配置</p>
+<pre><code>sudo vim /var/www/html/owncloud/config/config.php</code></pre>
+<p>将datadirectory改为挂载的硬盘下创建的目录并保存，并加入flie_allow:</p>
+<pre><code>&#39;datadirectory&#39; =&gt; &#39;/mnt/data/9、owncloud/data&#39;,  #修改
+&#39;files_external_allow_create_new_local&#39; =&gt; &#39;true&#39;,  #加入</code></pre>
+<h3 id="更改selinux模式">6.4更改SELinux模式</h3>
+<pre><code>setenforce 0  #这相当于设置SELinux 成为permissive模式，不需要重启</code></pre>
+<h2 id="常见问题">7、常见问题</h2>
+<h3
+id="文件权限问题解决0770问题--可能会用到">7.1文件权限问题（解决0770问题）-
+可能会用到</h3>
+<pre><code>已经给予的权限：（归属用户、所拥权限）
+chown -R www-data:www-data /var/www/html/owncloud/
+chmod -R 0777 /var/www/html/owncloud/
+
+给予外部存储硬盘存储数据文件权限：
+sudo chown -R www-data:www-data /mnt/data/9、owncloud/
+sudo chmod -R 0770 /mnt/data/9、owncloud/</code></pre>
+<h3
+id="ntfs格式无法更改权限问题-可能会用到">7.2NTFS格式无法更改权限问题-可能会用到</h3>
+<pre><code>UUID=C0F8ACE9F8ACDEC2     /mnt/data    ntfs-3g  permissions  0 0
+加入permissions参数即可
+
+以可读写方式挂载ntfe分区
+mount -t ntfs-3g /dev/sdb1 /mnt/ntfs</code></pre>
+<h3 id="常用命令">7.3常用命令</h3>
+<pre><code>sudo vim /var/www/html/owncloud/config/config.php #owncloud配置文件
+sudo vim /etc/fstab</code></pre>
+<h2 id="参考资料">8、参考资料</h2>
+<blockquote>
+<p>8.1：https://developer.aliyun.com/article/784286
+8.2：https://blog.csdn.net/qq_43445362/article/details/107228935</p>
+<p>8.3:https://www.cnblogs.com/bhlsheji/p/5327718.html</p>
+</blockquote>
+</body>
+</html>

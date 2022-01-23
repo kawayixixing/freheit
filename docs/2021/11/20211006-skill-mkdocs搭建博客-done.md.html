@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>20211006-skill-mkdocs搭建博客-done</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="mkdocs-blog教程">MkDocs Blog教程</h1>
+<h2 id="初衷">1、初衷</h2>
+<p>写博客的平台那么多，之前用学着用 Github issues
+写博客，够用是够用，但是需要跳转链接。还不能同步到 Gitess
+，导致国内访问速度很慢。无意间了解到了 Mkdocs
+写博客。相当于静态界面，可部署到很多平台，且和 Github issues
+写博客差不多，不需要其他的技能，只需要会用 MD 语法写文章即可。</p>
+<h2 id="开始部署">2、开始部署</h2>
+<h3 id="linux平台">2.1 Linux平台</h3>
+<pre><code>sudo apt install mkdocs</code></pre>
+<p>PS：几乎所有的文章都是用 pip 安装，但是我的 pip
+安装代理有问题，倒腾了很长时间，在腾讯服务器上提示我可以用 apt
+安装，我瞬间开心了起来。</p>
+<h3 id="新建本地项目">2.2 新建本地项目</h3>
+<pre><code>mkdocs new [dir-name]</code></pre>
+<p>新建一个项目文件夹，其目录结构如下：</p>
+<pre><code>mkdocs.yml    # The configuration file. 配置文件
+docs/
+    index.md  # The documentation homepage. 首页
+    ...       # Other markdown pages, images and other files.</code></pre>
+<h3 id="启动实时调试服务">2.3 启动实时调试服务</h3>
+<pre><code>mkdocs serve </code></pre>
+<p>进行本地调试，可修改，实时预览。[http://127.0.0.1:8000/];</p>
+<h3 id="换-material-的主题">2.4 <a
+href="https://squidfunk.github.io/mkdocs-material/">换 Material
+的主题</a></h3>
+<pre><code>pip install mkdocs-material # failed</code></pre>
+<p>PS：依旧是 pip 代理问题，无法安装，所以直接将其 Git
+仓库克隆了下来。</p>
+<pre><code>git clone git@github.com:squidfunk/mkdocs-material.git # 使用的ssh方法</code></pre>
+<p>PS：建议把主题包文件与 mkdocs new 的项目文件放在一起。</p>
+<p>切换通过 Git 下来的 Material 主题，在项目文件下修改配置文件 -
+<code>mkdocs.yml</code>，加入以下代码。</p>
+<pre><code>theme:
+  name: null
+  custom_dir: mkdocs-material/material
+
+  # 404 page
+  static_templates:
+    - 404.html
+
+  # Necessary for search to work properly
+  include_search_page: false
+  search_index_only: true
+
+  # Default values, taken from mkdocs_theme.yml
+  language: en
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/favicon.png
+  icon:
+    logo: logo</code></pre>
+<p>PS：If you cloned Material for MkDocs from GitHub, you must list all
+of the themes’ defaults, because mkdocs_theme.yml is not loaded
+automatically as described in the official documentation. 如果是通过 Git
+下来的主题，则需要保持主题配置默认。</p>
+<p>使用 2.3 进行预览。</p>
+<h3 id="发布到-github-pages-或-gitlab-pages">2.4 发布到 Github Pages 或
+GitLab Pages</h3>
+<pre><code>mkdocs build # 构建文档站点</code></pre>
+<p>会在项目文件中生成一个 site 文件夹，将其上传到 Github Pages
+或其他站点即可。</p>
+</body>
+</html>

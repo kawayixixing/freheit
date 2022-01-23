@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>20211207-skill-央视频网页端下载步骤-done</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="userstyle.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#央视频下载步骤">央视频下载步骤</a>
+<ul>
+<li><a href="#找视频">1. 找视频</a></li>
+<li><a href="#network筛选">2. Network筛选</a></li>
+<li><a href="#在这里了">3. 在这里了</a></li>
+<li><a href="#使用ffmpeg下载">4. 使用ffmpeg下载</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="央视频下载步骤">央视频下载步骤</h1>
+<p><strong>原因: 普通的网页嗅探下载的央视频会出现花屏, 只有声音图像花屏.
+于是在网络上寻找相关的的解决方法. 你别说还真有大佬给了解决方法,
+在此进行整理.</strong></p>
+<h2 id="找视频">1. 找视频</h2>
+<p>在网页端找到视频
+,在<strong>视频未播放前</strong>按F12进入浏览器的开发人员模式.</p>
+<h2 id="network筛选">2. Network筛选</h2>
+<p>在network标签下的筛选器进行.do的链接筛选,
+然后选择在新的标签页面打开.</p>
+<h2 id="在这里了">3. 在这里了</h2>
+<p>在该页面Ctrl - F 检索hls_url
+就是视频的地址了.然后拿到m3u8下载即可.</p>
+<h2 id="使用ffmpeg下载">4. 使用ffmpeg下载</h2>
+<p>ffmpeg -i “m3u8的地址” 视频Name.mp4</p>
+</body>
+</html>
