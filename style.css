@@ -26,8 +26,6 @@ body {
   position: relative;
   max-width: 64em;  /* remove this for a full-width layout */
   margin: 0 auto;  /* centers the layout */
-  background-image:url(./img/home.png);
-  background-size:cover;
 }
 
 /* ------- Sections ------- */
