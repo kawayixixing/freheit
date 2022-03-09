@@ -8,11 +8,11 @@
 
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   * {
-    --textcolor: #dadada;
-    --bgcolor: #141414;
-    --highlight: #ffc400;
+    --textcolor: #000000;
+    --bgcolor: #ffffff;
+    --highlight: #1e90ff;
   }
 }
 
