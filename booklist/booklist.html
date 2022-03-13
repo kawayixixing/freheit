@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>booklist</title>
+	<link rel="stylesheet" href="booklist.css">
+	<script async src="booklist.js"></script>
+
+</head>
+<body>
+
+	<div class="booklist__top">
+  <h1>My booklist - 我的书单</h1>
+
+  <p>
+  "读书不是为了雄辩和辩驳，也不是为了轻信和盲从，而是为了思考和权衡"  <br />
+   弗兰西斯-培根《培根随笔》
+           <br />
+           <br />
+    Through reading, people can change their own lives for the better and shape their own futures. <a href="https://www.worldreader.org/what-we-do/">Help create a literate world</a> through books and technology.通过阅读人们可以改变他们的生活以及重塑他们自己的未来。通过书籍和技术来创造一个文学世界。
+    <br />
+    <br />
+  </p>
+
+  <div id="buttons">
+    <div class="selector category">
+      <select id="categorySelector" name="Category">
+        <option value="" selected disabled hidden>Select category</option>
+        <option value="title">Title</option>
+        <option value="author">Author</option>
+        <option value="release">Released</option>
+        <option value="pages">Pages</option>
+        <option value="score">Score</option>
+        <option value="level">Level</option>
+        <option value="registered">Read</option>
+      </select>
+    </div>
+    <div class="selector order">
+      <select id="orderSelector" name="Order">
+        <option value="ascending">Ascending</option>
+        <option value="descending">Descending</option>
+      </select>
+    </div>
+  </div>
+
+</div>
+
+<div id="bookList">
+
+<!---书籍具体条目-->
+  <div class="book__item">
+
+    <div class="book__image">
+      <span class="helper"></span>
+      <img src="https://img2.doubanio.com/view/subject/l/public/s28024431.jpg">
+    </div>
+
+    <div class="book__data">
+      <div class="book__top">
+        <div class="book__title">
+          <h3>我们赖以生存的隐喻</h3>
+          <div class="book__author">
+            <span class="span__by">by</span> <span class="span__author">[美]乔治·莱考夫/[美]马克· 约翰逊</span>
+          </div>
+        </div>
+      </div>
+      <div class="book__category data">
+        category<span class="span__category">H语言学</span>
+      </div>
+      <div class="book__release data">
+        released<span class="span__released">2015-04</span>
+      </div>
+      <div class="book__pages data">
+        pages<span class="span__pages">237</span></div>
+      <div class="book__level data">
+        level<span class="span__level">中</span>
+      </div>
+      <div class="book__score data">
+        score<span class="span__score">5</span>
+      </div>
+      <div class="book__registered data">
+        read<span class="span__registered">2022.02.07</span>
+      </div>
+      <div class="book__link data">
+
+        <span class="span__link"><a href="https://book.douban.com/subject/26298597/">豆瓣</a></span>
+      </div>
+      <div class="book__comments data">
+
+        <span class="span__comments"><button class="btn__comment">评论</button></span>
+      </div>
+      <div class="comment__wrapper">
+        <div class="book__comment">
+          <p>
+	  看这本书的原因是因为看了一部电影《Arrivall》- 异星入境，讲述的是一群没有语言的外星人，通过写意文字与人类交流，女主具有感知未来的能力，其在看到未来之后，即使是自己最不愿意面对的未来，但依然选择接受现实。其中有句台词意味深长："你说话使用的语言，决定了你的思维方式"
+         <br /><br />
+	 在看电影影评的时候，发现有人推荐这本书，于是找到电子版来看。就像推荐者所说：这本书需要作者去体验，而不是去阅读。
+         <br /><br />
+	"爱情是一件双方共同加工的艺术品"、"试想有这么一种文化，在这种文化中，争论不再被看作是战争，没有人赢或输，攻击或防御，赢得或输掉也没有任何意义" 
+          </p>
+        </div>
+        <button class="btn__close_comment">CLOSE</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="book__item">
+
+    <div class="book__image">
+      <span class="helper"></span>
+      <img src="https://img2.doubanio.com/view/subject/l/public/s1302073.jpg">
+    </div>
+    <div class="book__data">
+      <div class="book__top">
+        <div class="book__title">
+          <h3>写给未出世的你</h3>
+          <div class="book__author">
+            <span class="span__by">by</span> <span class="span__author">[法]阿尔贝·雅卡尔</span>
+          </div>
+        </div>
+      </div>
+      <div class="book__category data">
+        category<span class="span__category">C社会学</span>
+      </div>
+      <div class="book__release data">
+        released<span class="span__released">2001-12</span>
+      </div>
+      <div class="book__pages data">
+        pages<span class="span__pages">148</span></div>
+      <div class="book__level data">
+        level<span class="span__level">易</span>
+      </div>
+      <div class="book__score data">
+        score<span class="span__score">4</span>
+      </div>
+      <div class="book__registered data">
+        read<span class="span__registered">2022.02.10</span>
+      </div>
+      <div class="book__link data">
+        <span class="span__link"><a href="https://book.douban.com/subject/1071624/">豆瓣</a></span>
+      </div>
+      <div class="book__comments data">
+        <span class="span__comments"><button class="btn__comment">评论</button></span>
+      </div>
+
+      <div class="comment__wrapper">
+        <div class="book__comment">
+          <p>
+           关于：一本上世纪的睿哲之人写给本世纪的人们的书，有关教育、经济、社会、生活等方面的思考与畅想。"学校的教学目标根本不该是为未来的好日子做准备，简直可笑，你现在不正处在生命最好的阶段吗？学校同样不该教导你去战胜别人，否则你的一生会简化成一连串的竞争，而最后必然是失败。学校的职责是帮助你将自己的智慧变为工具，并且在你丧失信心、认为不会再进步的时候，帮助你度过这些怀疑的时刻。" 
+            <br /><br />
+           为什么读：在浏览社交软件-即刻，看见有人摘录了一些文字，很感兴趣，便拿来读一读。 
+            <br /><br />
+           评论：有一种和作者面对面，爷爷在给孙子讲故事的感觉。从生活微观的小方面，循序渐进的讲到社会，世界等宏观的方面，足以见得作者满腹经纶。
+          </p>
+        </div>
+        <button class="btn__close_comment">CLOSE</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="book__item">
+
+    <div class="book__image">
+      <span class="helper"></span>
+      <img src="https://img2.doubanio.com/view/subject/l/public/s1020952.jpg">
+    </div>
+    <div class="book__data">
+      <div class="book__top">
+        <div class="book__title">
+          <h3>生命的留言</h3>
+          <div class="book__author">
+            <span class="span__by">by</span> <span class="span__author">陆幼青</span>
+          </div>
+        </div>
+      </div>
+      <div class="book__category data">
+        category<span class="span__category">G文化</span>
+      </div>
+      <div class="book__release data">
+        released<span class="span__released">2000-11</span>
+      </div>
+      <div class="book__pages data">
+        pages<span class="span__pages">320</span></div>
+      <div class="book__level data">
+        level<span class="span__level">易</span>
+      </div>
+      <div class="book__score data">
+        score<span class="span__score">3</span>
+      </div>
+      <div class="book__registered data">
+        read<span class="span__registered">2022.01.26</span>
+      </div>
+      <div class="book__link data">
+        <span class="span__link"><a href="https://book.douban.com/subject/1029739/">豆瓣</a></span>
+      </div>
+      <div class="book__comments data">
+        <span class="span__comments"><button class="btn__comment">评论</button></span>
+      </div>
+
+      <div class="comment__wrapper">
+        <div class="book__comment">
+          <p>
+            About:作者在癌症晚期，记录自己生命最后时刻的日常生活，整理而成的书籍。 
+            <br /><br />
+            Why I read it:整理网盘时，发现的一本电子书。想看看人在无法医治的病痛下，想在生命最后时刻留下什么给自己的家庭以及社会。 
+            <br /><br />
+            Verdict:作者以日记的方式，记录生命的最后时刻，在得知无法医治的结果后，没有选择医院化疗，而是选择享受人生的状态来面对最后的时光。真实的生活记录家。 
+          </p>
+        </div>
+        <button class="btn__close_comment">CLOSE</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="book__item">
+
+    <div class="book__image">
+      <span class="helper"></span>
+      <img src="https://img9.doubanio.com/view/subject/l/public/s24682765.jpg">
+    </div>
+    <div class="book__data">
+      <div class="book__top">
+        <div class="book__title">
+          <h3>空间感</h3>
+          <div class="book__author">
+            <span class="span__by">by</span> <span class="span__author">刘心武</span>
+          </div>
+        </div>
+      </div>
+      <div class="book__category data">
+        category<span class="span__category">I文学</span>
+      </div>
+      <div class="book__release data">
+        released<span class="span__released">2013-02</span>
+      </div>
+      <div class="book__pages data">
+        pages<span class="span__pages">244</span></div>
+      <div class="book__level data">
+        level<span class="span__level">易</span>
+      </div>
+      <div class="book__score data">
+        score<span class="span__score">4</span>
+      </div>
+      <div class="book__registered data">
+        read<span class="span__registered">2022.01.02</span>
+      </div>
+      <div class="book__link data">
+        <span class="span__link"><a href="https://book.douban.com/subject/20645025/">豆瓣</a></span>
+      </div>
+      <div class="book__comments data">
+        <span class="span__comments"><button class="btn__comment">评论</button></span>
+      </div>
+
+      <div class="comment__wrapper">
+        <div class="book__comment">
+          <p>
+            About:应该算是一本作者的回忆录吧，70-80年代左右，时代变迁的空间回忆记录
+            <br /><br />
+            Why I read it:去年在书店买的书，应该名字吸引我，让我像了解一下这个作者。到底别人眼中的空间感是什么样的。 
+            <br /><br />
+            Verdict:前半部分是时代、人生、社会的记录描写，让我感受到那个时代特有的空间感觉。后面是一些杂文收录。"人要去除低俗，不一定要有高雅的情调，但一定要有意识的去培养高雅的情调。" 
+          </p>
+        </div>
+        <button class="btn__close_comment">CLOSE</button>
+      </div>
+    </div>
+  </div>
+<!---添加书籍具体条目-->
+
+  <button class="showMore">Show</button>
+<p>
+<a href="../index.html">← back</a>
+</p>
+
+
+</div>
+</body>
+</html>
