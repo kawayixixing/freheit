@@ -1,0 +1,51 @@
+{
+    "title": "音乐集-Freheit's Album",
+    "media": [
+	{
+		"file": "I am you.mp3",
+		"title": "I am you",
+		"info": "I am you-Kim Taylor"
+	},
+
+	{
+		"file": "Señorita.mp3",
+		"title": "Señorita",
+		"info": "Señorita-Shawn Mendes/Camila Cabello"
+	},
+    
+	{
+		"file": "Señorita.mp3",
+		"title": "Señorita",
+		"info": "Señorita-Shawn Mendes/Camila Cabello"
+	},
+
+	{
+		"file": "Warrior.mp3",
+		"title": "Warrior",
+		"info": "Warrior-Avril Lavigne"
+	},
+
+	{
+		"file": "Wish You Were Here.wav",
+		"title": "Wish you were here",
+		"info": "Wish you were here-Pink Floyed"
+	},
+	{
+		"file": "我用什么把你留住.mp3",
+		"title": "我用什么把你留住",
+		"info": "我用什么把你留住-福禄寿",
+		"featured": true
+	}
+
+
+    ],
+    "cover": "Cover.jpg",
+    "theme": {
+        "coverSize": 480,
+        "layoutStyle": "vertical",
+        "infoStyle": "overlaid",
+        "contentWidth": 400,
+        "nativePlayer": false
+    },
+    "description": "Freheit favorites music. You can listen at here slowly!我最喜欢的音乐清单，在这里了，请您慢慢倾听。"
+}

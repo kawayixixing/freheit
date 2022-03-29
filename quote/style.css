@@ -1,0 +1,30 @@
+/*This is quote style.css*/
+h1 {
+	text-align: center;
+}
+
+.content {
+	padding: 1em;
+	font-size: 150%;
+}
+
+/*quote style*/
+.quote {
+	padding: 1em;
+	margin: 5px;
+	font-size: 200%;
+	border-left: 6px dotted purple;
+}
+footer {
+	padding: 1%;
+	text-align: center;
+}
+
+.back {
+	font-size: 100%;
+	padding: 2em;
+	margin: 2em;
+	text-align: center;
+}
+
+
