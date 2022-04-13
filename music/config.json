@@ -6,23 +6,26 @@
 		"title": "I am you",
 		"info": "I am you-Kim Taylor"
 	},
-
 	{
 		"file": "Señorita.mp3",
 		"title": "Señorita",
 		"info": "Señorita-Shawn Mendes/Camila Cabello"
 	},
-    
 	{
-		"file": "Señorita.mp3",
-		"title": "Señorita",
-		"info": "Señorita-Shawn Mendes/Camila Cabello"
+		"file": "茉莉花-雷佳.mp3",
+		"title": "茉莉花",
+		"info": "茉莉花-雷佳.mp3"
 	},
-
 	{
-		"file": "Warrior.mp3",
+		"file": "/Avril_Lavigne/Avril Lavigne - Warrior.MP3",
 		"title": "Warrior",
-		"info": "Warrior-Avril Lavigne"
+		"info": "Avril Lavigne - Warrior"
+	},
+
+	{
+		"file": "/Avril_Lavigne/Avril Lavigne - Head Above Water.MP3",
+		"title": "Head Above Water",
+		"info": "Avril Lavigne - Head Above Water"
 	},
 
 	{
